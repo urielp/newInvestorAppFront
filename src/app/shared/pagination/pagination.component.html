@@ -1,0 +1,8 @@
+<nav aria-label="Page navigation example myNav" class="myNav">
+  <ul class="pagination pagination-primary" >
+    <li class="page-item " [ngClass]="{'active':activeIndex === i}" *ngFor="let page of arr; let i = index"
+        (click)="toggleActive(i)">
+      <a class="page-link" id={{i+1}}>{{i+1}}</a>
+    </li>
+  </ul>
+</nav>

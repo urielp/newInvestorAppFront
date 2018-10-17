@@ -1,0 +1,95 @@
+.card{
+  text-align: right;
+  .card-category{
+    color:#565656
+  }
+}
+.header{
+  text-align: center;
+
+}
+.cardHeader{
+  background-color: #00aec5;
+}
+.card-category{
+  color:#565656;
+}
+
+.login{
+z-index: 1;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+.login-page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  position: relative;
+}
+
+.input-login-icon {
+  font-size: 22px!important;
+  position: relative;
+}
+.highlight {
+  position: absolute;
+  height: 0%;
+  width: 100px;
+  top: 25%;
+  left: 0;
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+.bar {
+  position: relative;
+  display: block;
+  width: 100%;
+}
+.bar:before,
+.bar:after {
+  content: '';
+  height: 2px;
+  width: 0;
+  bottom: 1px;
+  position: absolute;
+  background: rgba(255, 255, 255, 0.7);
+  transition: 0.2s ease all;
+  -moz-transition: 0.2s ease all;
+  -webkit-transition: 0.2s ease all;
+}
+.bar:before {
+  left: 50%;
+}
+.bar:after {
+  right: 50%;
+}
+
+.card-profile .card-avatar {
+  max-width: 150px;
+  max-height: 150px;
+}
+.icon{
+  font-size: 150px;
+  color: #00bcd4;
+}
+.title{
+  padding-top: 20px;
+}
+
+.test{
+  width: 550px;
+  height: 650px;
+  display: block;
+  margin-left:auto;
+  margin-right:auto;
+  margin-top: 100px;
+  vertical-align:middle;
+  box-shadow: 0 16px 38px -12px rgba(0, 0, 0, 0.56), 0 4px 25px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.2);
+}
+
+.loginbutton{
+  margin-top:105px;
+}

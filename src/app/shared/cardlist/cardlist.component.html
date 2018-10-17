@@ -1,0 +1,42 @@
+<div class="card">
+  <div class="card-header card-header-danger" style="text-align: right">
+    <h4 class="card-title">רשימה של אנשים</h4>
+    <p class="card-category">תת כותרת</p>
+  </div>
+  <div class="card-body" style="text-align: right;">
+    <ul class="mdc-list list-unstyled team-members" aria-orientation="vertical">
+      <li class="mdc-list-item " *ngFor="let person of clientList" tabindex="0">
+        <div class="flex-container">
+          <div class="fill-space" >
+            <div class="avatar">
+              <img src="assets/img/faces/face-0.jpg" alt="Circle Image" class="img-circle img-no-padding img-responsive">
+            </div>
+          </div>
+          <div class="fill-space" >
+            <a href="javascript:void(0)"
+               (click)="onLoadProfile(person._id)">
+           {{person.firstName +' '+ person.lastName}}
+            </a>
+            <br />
+            <!--<div>Icons made by <a href="http://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>-->
+            <!--<span class="text-muted"><small>Offline</small></span>-->
+          </div>
+          <div >
+            <button mat-raised-button type="submit" class="btn btn-success myButton btn-round btn-just-icon">
+              <i class="material-icons">mail</i>
+              <div class="ripple-container"></div>
+            </button>
+          </div>
+        </div>
+        <hr class="mdc-list-divider">
+      </li>
+
+    </ul>
+  </div>
+  <div class="card-footer ">
+    <div class="flex-container-center" *ngIf="pageSize">
+      <app-pagination  [pageSize]=pageSize></app-pagination>
+    </div>
+   </div>
+</div>
+

@@ -1,0 +1,129 @@
+<div class="card">
+  <div class="card-header card-header-danger" style="text-align: right">
+    <h4 class="card-title" >{{submitBtnText}}</h4>
+    <p class="card-category">Complete your profile</p>
+  </div>
+  <div class="card-body" >
+    <form [formGroup]="userForm" (ngSubmit)="onSubmit()"  >
+      <div class="row">
+        <div class="col-md-5">
+          <mat-form-field class="example-full-width">
+            <input matInput placeholder="Company" formControlName="company" name="company">
+          </mat-form-field>
+        </div>
+        <div class="col-md-3">
+          <mat-form-field class="example-full-width">
+            <input matInput placeholder="שם משתמש"  formControlName="userName" name="userName">
+          </mat-form-field>
+        </div>
+        <div class="col-md-4">
+          <mat-form-field class="example-full-width">
+            <input matInput placeholder="מייל"  formControlName="email" type="email" name="email">
+          </mat-form-field>
+          <mat-error *ngIf="formError.email"
+                     [innerHTML]="formError.email"
+                     style="text-align: right">
+          </mat-error>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4">
+          <mat-form-field class="example-full-width">
+            <input   matInput placeholder=" שם פרטי"
+                     formControlName="firstName"
+                     type="text"
+                     name="firstName"
+                     id="firstName"
+                     [minlength]="us.textmin">
+          </mat-form-field>
+          <mat-error *ngIf="formError.firstName"
+                     [innerHTML]="formError.firstName"
+          style="text-align: right">
+          </mat-error>
+        </div>
+        <div class="col-md-4">
+          <mat-form-field class="example-full-width">
+            <input matInput placeholder="שם משפחה"  formControlName="lastName" name="lastName" type="text">
+          </mat-form-field>
+          <mat-error *ngIf="formError.lastName"
+                     [innerHTML]="formError.lastName">
+          </mat-error>
+        </div>
+        <div class="col-md-4">
+          <mat-form-field class="example-full-width">
+            <input matInput placeholder="תפקיד"  formControlName="role" name="role" type="text">
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4">
+          <mat-form-field class="example-full-width">
+            <input matInput placeholder="תאריך לידה" formControlName="birthDate" name="birthDate" type="text">
+          </mat-form-field>
+        </div>
+        <div class="col-md-4">
+          <mat-form-field class="example-full-width">
+            <input matInput placeholder="כתובת"  formControlName="address" name="address" type="text">
+          </mat-form-field>
+        </div>
+        <div class="col-md-4">
+          <mat-form-field class="example-full-width">
+            <input matInput placeholder="טלפון"  formControlName="cellPhoneNumber" name="cellPhoneNumber" type="text">
+          </mat-form-field>
+          <mat-error *ngIf="formError.cellPhoneNumber"
+                     [innerHTML]="formError.cellPhoneNumber"
+                     style="text-align: right">
+          </mat-error>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4">
+          <mat-form-field class="example-full-width">
+            <input matInput placeholder="עיר"  formControlName="city" name="city" type="text">
+          </mat-form-field>
+        </div>
+        <div class="col-md-4">
+          <mat-form-field class="example-full-width">
+            <input matInput placeholder="ארץ"  formControlName="country" name="country" type="text">
+          </mat-form-field>
+        </div>
+        <div class="col-md-4">
+          <mat-form-field class="example-full-width">
+            <input matInput placeholder="מיקוד"  formControlName="postalCode" name="postalCode" type="text">
+          </mat-form-field>
+        </div>
+
+        <div class="col-md-4">
+          <mat-form-field class="example-full-width">
+            <input matInput placeholder="מגייס"  formControlName="recruiter" name="recruiter" type="text">
+          </mat-form-field>
+        </div>
+        <div class="col-md-4">
+          <mat-form-field class="example-full-width">
+            <input matInput placeholder="תאריך הצטרפות"  formControlName="joinDate" name="joinDate" type="text">
+          </mat-form-field>
+          <mat-error *ngIf="formError.joinDate"
+                     [innerHTML]="formError.joinDate"
+                     style="text-align: right">
+          </mat-error>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <label>About Me</label>
+          <mat-form-field class="example-full-width">
+            <textarea matInput placeholder="הערות"  formControlName="comments" name="comments"></textarea>
+          </mat-form-field>
+
+        </div>
+      </div>
+      <button mat-raised-button type="submit"
+              class="btn btn-danger pull-right"
+              [attr.disabled]="userForm.invalid || submmiting ? true : null"
+              [innerText]="submitBtnText"> </button>
+      <div class="clearfix"></div>
+
+    </form>
+  </div>
+</div>
+

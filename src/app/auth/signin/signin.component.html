@@ -1,0 +1,157 @@
+<div class="login-page" dir="rtl">
+      <div class="col-lg-4 login">
+        <div class="card card-profile test">
+          <div class="card-avatar">
+          <i class="material-icons icon">account_circle</i>
+        </div>
+
+          <div style="text-align: center">
+            <h1 class="title">שלום</h1>
+            <p>
+            הזן פרטים על מנת להתחבר
+            </p>
+          </div>
+
+          <div class="card-body">
+            <form (ngSubmi)="onSignIn(f)" #f="ngForm" class="text-center">
+              <div fxFlex fxLayout="row" fxLayout.lt-md="column">
+                <div  fxFlexFill>
+                  <!--<div class="w-20">-->
+                  <!--<span class="highlight"></span>-->
+                  <!--<span class="bar"></span>-->
+                  <!--<label> <i class="material-icons input-login-icon ">email </i><span class="span-input"></span></label>-->
+                  <!--</div>-->
+
+                  <mat-form-field class="w-80" appearance="outline">
+                    <mat-label>דואר אלקטרוני</mat-label>
+                    <input matInput placeholder="מייל"  type="email" name="email">
+                    <mat-icon matSuffix>email</mat-icon>
+                  </mat-form-field>
+                </div>
+              </div>
+              <div fxFlex fxLayout="row" fxLayout.lt-md="column">
+                <div fxFlexFill>
+                  <!--<div class="w-20">-->
+                  <!--<span class="highlight"></span>-->
+                  <!--<span class="bar"></span>-->
+                  <!--<label> <i class="material-icons input-login-icon ">lock</i><span class="span-input"></span></label>-->
+                  <!--</div>-->
+                  <mat-form-field class="w-80" appearance="outline">
+                    <mat-label>סיסמא</mat-label>
+                    <input matInput placeholder="סיסמא"  type="password" name="password" required>
+                    <mat-icon matSuffix>lock</mat-icon>
+                  </mat-form-field>
+                </div>
+              </div>
+              <!--<mat-divider> </mat-divider>-->
+              <div class="row" layout-align="center center">
+                <div class="col-md-4"></div>
+                <div class="col-md-4 loginbutton" layout-align="center center">
+                  <button mat-raised-button type="submit" class="btn btn-outline-info pull-right w-100" (click)="signIn()">התחבר</button>
+                  <div class="clearfix"></div>
+                </div>
+
+              </div>
+
+            </form>
+          </div>
+        </div>
+        <!--<div class="card">-->
+          <!--<div class="card-avatar">-->
+              <!--<i class="material-icons input-login-icon ">account_circle</i>-->
+          <!--</div>-->
+          <!--<div class="card-header cardHeader">-->
+            <!--<h4 class="card-title header ">התחבר</h4>-->
+            <!--<p class="card-category header cardtitle">הזן פרטים להתחברות למערכת</p>-->
+          <!--</div>-->
+          <!--<div class="card-body">-->
+            <!--<form (ngSubmi)="onSignIn(f)" #f="ngForm" class="text-center">-->
+              <!--<div fxFlex fxLayout="row" fxLayout.lt-md="column">-->
+                <!--<div  fxFlexFill>-->
+                  <!--<div class="w-20">-->
+                    <!--<span class="highlight"></span>-->
+                    <!--<span class="bar"></span>-->
+                    <!--<label> <i class="material-icons input-login-icon ">email </i><span class="span-input"></span></label>-->
+                  <!--</div>-->
+                  <!--<mat-form-field class="w-80">-->
+                    <!--<input matInput placeholder="מייל"  type="email" name="email">-->
+                  <!--</mat-form-field>-->
+                <!--</div>-->
+              <!--</div>-->
+              <!--<div fxFlex fxLayout="row" fxLayout.lt-md="column">-->
+                <!--<div fxFlexFill>-->
+                  <!--<div class="w-20">-->
+                    <!--<span class="highlight"></span>-->
+                    <!--<span class="bar"></span>-->
+                    <!--<label> <i class="material-icons input-login-icon ">lock</i><span class="span-input"></span></label>-->
+                  <!--</div>-->
+                  <!--<mat-form-field class="w-80">-->
+                    <!--<input matInput placeholder="סיסמא"  type="password" name="password" required>-->
+                  <!--</mat-form-field>-->
+                <!--</div>-->
+              <!--</div>-->
+              <!--<mat-divider> </mat-divider>-->
+              <!--<div class="row" layout-align="center center">-->
+                <!--<div class="col-md-4"></div>-->
+                <!--<div class="col-md-4" layout-align="center center">-->
+                  <!--<button mat-raised-button type="submit" class="btn btn-outline-info pull-right w-100" (click)="signIn()">התחבר</button>-->
+                  <!--<div class="clearfix"></div>-->
+                <!--</div>-->
+
+              <!--</div>-->
+
+            <!--</form>-->
+          <!--</div>-->
+        <!--</div>-->
+      </div>
+
+</div>
+
+
+
+<!--<div class="col-md-4">-->
+  <!--<div class="card card-profile">-->
+    <!--<div class="card-avatar">-->
+      <!--<i class="material-icons icon">account_circle</i>-->
+    <!--</div>-->
+    <!--<div class="card-body">-->
+      <!--<form (ngSubmi)="onSignIn(f)" #f="ngForm" class="text-center">-->
+        <!--<div fxFlex fxLayout="row" fxLayout.lt-md="column">-->
+          <!--<div  fxFlexFill>-->
+            <!--&lt;!&ndash;<div class="w-20">&ndash;&gt;-->
+              <!--&lt;!&ndash;<span class="highlight"></span>&ndash;&gt;-->
+              <!--&lt;!&ndash;<span class="bar"></span>&ndash;&gt;-->
+              <!--&lt;!&ndash;<label> <i class="material-icons input-login-icon ">email </i><span class="span-input"></span></label>&ndash;&gt;-->
+            <!--&lt;!&ndash;</div>&ndash;&gt;-->
+            <!--<mat-form-field class="w-80">-->
+              <!--<input matInput placeholder="מייל"  type="email" name="email">-->
+            <!--</mat-form-field>-->
+          <!--</div>-->
+        <!--</div>-->
+        <!--<div fxFlex fxLayout="row" fxLayout.lt-md="column">-->
+          <!--<div fxFlexFill>-->
+            <!--&lt;!&ndash;<div class="w-20">&ndash;&gt;-->
+              <!--&lt;!&ndash;<span class="highlight"></span>&ndash;&gt;-->
+              <!--&lt;!&ndash;<span class="bar"></span>&ndash;&gt;-->
+              <!--&lt;!&ndash;<label> <i class="material-icons input-login-icon ">lock</i><span class="span-input"></span></label>&ndash;&gt;-->
+            <!--&lt;!&ndash;</div>&ndash;&gt;-->
+            <!--<mat-form-field class="w-80">-->
+              <!--<input matInput placeholder="סיסמא"  type="password" name="password" required>-->
+            <!--</mat-form-field>-->
+          <!--</div>-->
+        <!--</div>-->
+        <!--<mat-divider> </mat-divider>-->
+        <!--<div class="row" layout-align="center center">-->
+          <!--<div class="col-md-4"></div>-->
+          <!--<div class="col-md-4" layout-align="center center">-->
+            <!--<button mat-raised-button type="submit" class="btn btn-outline-info pull-right w-100" (click)="signIn()">התחבר</button>-->
+            <!--<div class="clearfix"></div>-->
+          <!--</div>-->
+
+        <!--</div>-->
+
+      <!--</form>-->
+    <!--</div>-->
+  <!--</div>-->
+<!--</div>-->
+

@@ -1,0 +1,11 @@
+<!--<ng-template [ngIf]="investor">-->
+<div class="row">
+  <div class="col-md-8" *ngIf="investor">
+     <app-profile-form  [user]="investor"></app-profile-form>
+  </div>
+  <div class="col-md-4" >
+  <app-profile-details [userData]="investor"></app-profile-details>
+  </div>
+</div>
+<!--</ng-template>-->
+

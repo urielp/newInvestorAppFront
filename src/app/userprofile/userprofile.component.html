@@ -1,0 +1,25 @@
+
+<div class="main-content" >
+  <p *ngIf="error">
+  <strong>Error:</strong>לא נמצא משתמש
+  </p>
+  <h1>{{pageTitle}}</h1>
+  <div class="container-fluid">
+    <div class="row" *ngIf="hasId;else create">
+      <app-update-profile></app-update-profile>
+      <!--<div class="col-md-8" *ngIf="hasId;else create">-->
+          <!--<app-update-profile></app-update-profile>-->
+      <!--</div>-->
+      <!--<div class="col-md-4" *ngIf="hasId">-->
+        <!--<app-profile-details [userData]="user"></app-profile-details>-->
+      <!--</div>-->
+    </div>
+    <ng-template #create>
+    <div class="row">
+        <div class="col-md-8" >
+          <app-profile-editor></app-profile-editor>
+        </div>
+    </div>
+    </ng-template>
+  </div>
+</div>
