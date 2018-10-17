@@ -1,6 +1,6 @@
 import {Component, OnInit, OnDestroy, Input} from '@angular/core';
 import {FormGroup, FormBuilder, Validators, AbstractControl} from '@angular/forms';
-import {Router} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {Subscription} from 'rxjs';
 import {DatePipe} from '@angular/common';
 import {dateValidator} from '../../core/date.validator';
@@ -20,7 +20,7 @@ import {NOTIF_TYPE, NOTIF_ICON_TYPE, NOTIF_MESSEGAES, NOTIF_TITLE, NOTIF_ALIGNME
   templateUrl: './profile-form.component.html',
   styleUrls: ['./profile-form.component.scss']
 })
-export class ProfileFormComponent implements OnInit ,OnDestroy{
+export class ProfileFormComponent implements OnInit , OnDestroy {
 
   @Input() user: InvestorModel;
   isEdit: boolean;
@@ -40,6 +40,7 @@ export class ProfileFormComponent implements OnInit ,OnDestroy{
   constructor(
     private fb: FormBuilder,
     private datePipe: DatePipe,
+    private route: ActivatedRoute,
     private router: Router,
     public us: CreateUserService,
     private userService: UserService,
@@ -210,8 +211,7 @@ this.connection.unsubscribe();
             NOTIF_TYPE.ERROR, NOTIF_ICON_TYPE.ERROR);
         }
       );
-    }
-    else {
+    } else {
        this.submitUserSub = this.userService.addUser$(this.submitUserObj).subscribe(
          data => {
            this.notification.showNotification(NOTIF_ALIGNMENT.TOP,  NOTIF_ALIGNMENT.CENTER, NOTIF_TITLE.PROFILE_ADDED,
