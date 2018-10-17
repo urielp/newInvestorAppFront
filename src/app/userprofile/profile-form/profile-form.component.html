@@ -65,6 +65,10 @@
           <mat-form-field class="example-full-width">
             <input matInput placeholder="כתובת"  formControlName="address" name="address" type="text">
           </mat-form-field>
+          <mat-error *ngIf="formError.address"
+                     [innerHTML]="formError.address"
+                     style="text-align: right">
+          </mat-error>
         </div>
         <div class="col-md-4">
           <mat-form-field class="example-full-width">
@@ -75,12 +79,26 @@
                      style="text-align: right">
           </mat-error>
         </div>
+        <div class="col-md-4">
+          <mat-form-field class="example-full-width">
+            <input matInput placeholder="טלפון-משרד"  formControlName="officePhoneNumber" name="officePhoneNumber" type="text">
+          </mat-form-field>
+          <mat-error *ngIf="formError.officePhoneNumber"
+                     [innerHTML]="formError.officePhoneNumber"
+                     style="text-align: right">
+          </mat-error>
+        </div>
       </div>
+
       <div class="row">
         <div class="col-md-4">
           <mat-form-field class="example-full-width">
             <input matInput placeholder="עיר"  formControlName="city" name="city" type="text">
           </mat-form-field>
+          <mat-error *ngIf="formError.city"
+                     [innerHTML]="formError.city"
+                     style="text-align: right">
+          </mat-error>
         </div>
         <div class="col-md-4">
           <mat-form-field class="example-full-width">
@@ -119,7 +137,7 @@
       </div>
       <button mat-raised-button type="submit"
               class="btn btn-danger pull-right"
-              [attr.disabled]="userForm.invalid || submmiting ? true : null"
+              [disabled]="SubmitButtonDisabled"
               [innerText]="submitBtnText"> </button>
       <div class="clearfix"></div>
 

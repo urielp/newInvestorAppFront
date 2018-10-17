@@ -1,4 +1,4 @@
-import {Component, Input, OnInit, Renderer} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output, Renderer} from '@angular/core';
 
 @Component({
   selector: 'app-pagination',
@@ -11,6 +11,9 @@ export class PaginationComponent implements OnInit {
   pageSize;
   private arr;
   private activeIndex;
+
+  @Output()
+  pageSelection = new EventEmitter<{page: number}>();
   constructor() { }
 
   ngOnInit() {
@@ -19,6 +22,7 @@ export class PaginationComponent implements OnInit {
   }
   toggleActive(id) {
     this.activeIndex = id;
+    this.pageSelection.emit({page: this.activeIndex + 1});
   }
 
 }

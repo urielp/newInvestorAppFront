@@ -24,6 +24,7 @@ export class ProfileFormComponent implements OnInit , OnDestroy {
 
   @Input() user: InvestorModel;
   isEdit: boolean;
+  SubmitButtonDisabled: boolean;
   userForm: FormGroup;
   datesGroup: AbstractControl;
   formError: any;
@@ -55,6 +56,9 @@ export class ProfileFormComponent implements OnInit , OnDestroy {
     this.isEdit = !!this.user;
     this.submitBtnText = this.isEdit ? 'עדכן פרופיל' : 'צור משתמש חדש';
     this.formUser = this._setFormUser();
+
+ //   this.SubmitButtonDisabled = this.formUser ? false : true;
+
     this._buildForm();
     this.connection = this.sockService.getUpdate().subscribe(message => {
       console.log(message);
@@ -73,27 +77,33 @@ this.connection.unsubscribe();
 
   private _setFormUser() {
     if (!this.isEdit) {
+      this.SubmitButtonDisabled = false;
       // adding new user,create new
       // formUserModel with default null values
-      return new InvestorFormModel(null, null, null, null,
-        null, null, null, null, null, null, null,
-        null, null, null, null);
+      return new InvestorFormModel(null, null, null, null, null, null,
+        null, null, null, null, null, null, null, null,
+        null);
     } else {
       // if editing an exist  user,create new form
       // with the existing data
       const _shortDate = 'd/M/yyyy';
-      return new InvestorFormModel(
+
+      return new InvestorFormModel (
+        this.user.userName,
         this.user.firstName,
         this.user.lastName,
+        this.user.company,
         this.user.cellPhoneNumber,
         this.user.officePhoneNumber,
-        this.user.address, this.user.email,
+        this.user.address,
+        this.user.city,
+        this.user.email,
         this.datePipe.transform(this.user.birthDate, _shortDate),
-        this.user.picture, this.user.company, this.user.role,
+        this.user.role,
         this.datePipe.transform(this.user.joinDate, _shortDate),
         this.user.rank,
-        this.user.investorAssociatedProjects,
-        this.user.commentsTest, this.user.recruiter
+        this.user.commentsTest,
+        this.user.recruiter
       );
     }
   }
@@ -111,12 +121,13 @@ this.connection.unsubscribe();
         Validators.maxLength(this.us.userNameMax)
       ]],
       address: [this.formUser.address, Validators.required],
+      city: [null, Validators.required],
       birthDate: [this.formUser.birthDate, Validators.required],
       comments: [this.formUser.commentsTest, Validators.required],
       cellPhoneNumber: [this.formUser.cellPhoneNumber, Validators.required],
       email: [this.formUser.email, [Validators.required, Validators.pattern(EMAIL_REGEX)]],
-      rank: [this.formUser.rank, Validators.required],
-      role: [this.formUser.role, Validators.required],
+      rank: [this.formUser.rank],
+      role: [this.formUser.role],
       officePhoneNumber: [this.formUser.officePhoneNumber,
         Validators.required],
       joinDate: [this.formUser.joinDate,
@@ -128,12 +139,11 @@ this.connection.unsubscribe();
         Validators.required],
       company: [this.formUser.company,
         Validators.required],
-      city: [null, Validators.required],
       postalCode: [null],
       country: [null],
       userName: [null],
     });
-
+    this.SubmitButtonDisabled = !this.userForm.valid;
     this.formChangeSubscription = this.userForm
       .valueChanges
       .subscribe(data => {
@@ -144,14 +154,15 @@ this.connection.unsubscribe();
   // Validating input
   // TODO:make sure all fields are being validated and messages are presented properly
   private _onValueChanged() {
-    if (!this.userForm) { return; }
+    if (!this.userForm) {
+      return; }
     const _setErrorMessage = (control: AbstractControl, errorObject: any, field: string) => {
-
       if (control && control.dirty && control.invalid) {
         const message = this.us.validationMessages[field];
         for (const key in control.errors) {
           if (control.errors.hasOwnProperty(key)) {
             errorObject[field] += message[key] + '<br>';
+            console.log(errorObject[field]);
           }
         }
       }
@@ -162,7 +173,7 @@ this.connection.unsubscribe();
         _setErrorMessage(this.userForm.get(field), this.formError, field);
       }
     }
-
+    this.SubmitButtonDisabled = !this.userForm.valid;
   }
 
 
@@ -174,6 +185,7 @@ this.connection.unsubscribe();
       this.userForm.get('officePhoneNumber').value,
       this.userForm.get('address').value,
       this.userForm.get('email').value,
+      this.userForm.get('city').value,
      // this.datePipe.transform(this.user.birthDate, _shortDate),
       this.userForm.get('birthDate').value,
       null,
@@ -187,7 +199,8 @@ this.connection.unsubscribe();
       null,
        // this.userForm.get('commentsTest').value,
       null,
-      this.userForm.get('recruiter').value
+      this.userForm.get('recruiter').value,
+
     );
   }
   onSubmit() {

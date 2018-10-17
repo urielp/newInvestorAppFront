@@ -49,6 +49,12 @@ export class CreateUserService {
         required: `חובה להזין כתובת אימייל`,
         pattern: `כתובת אימייל חייבת להיות תקינה`
       },
+      address: {
+        required: `חובה להזין כתובת`
+      },
+      city: {
+        required: `חובה להזין עיר`
+      },
       firstName: {
         required: `חובה להזין שם פרטי`,
         minlength: `שם פרטי חייב להיות ${this.textmin}  אותיות או יותר `,
@@ -65,6 +71,12 @@ export class CreateUserService {
       },
       cellPhoneNumber: {
         required: 'חובה להזין מספר סלולרי'
+      },
+      recruiter: {
+        required: 'חובה להזין מגייס'
+      },
+      comments: {
+        required: 'חובה להזין הערה'
       }
     };
   }

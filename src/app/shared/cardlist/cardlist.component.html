@@ -35,7 +35,7 @@
   </div>
   <div class="card-footer ">
     <div class="flex-container-center" *ngIf="pageSize">
-      <app-pagination  [pageSize]=pageSize></app-pagination>
+      <app-pagination  [pageSize]=pageSize (pageSelection)="onPageSelection($event)"></app-pagination>
     </div>
    </div>
 </div>
