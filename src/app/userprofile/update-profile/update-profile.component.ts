@@ -39,7 +39,6 @@ export class UpdateProfileComponent implements OnInit , OnDestroy {
       .subscribe(
         res => {
           this.investor = res.data;
-          
           this.loading = false;
 
         },
