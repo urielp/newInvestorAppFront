@@ -57,6 +57,7 @@ export class ProfileFormComponent implements OnInit , OnDestroy {
     this.submitBtnText = this.isEdit ? 'עדכן פרופיל' : 'צור משתמש חדש';
     this.formUser = this._setFormUser();
 
+
  //   this.SubmitButtonDisabled = this.formUser ? false : true;
 
     this._buildForm();
@@ -82,7 +83,7 @@ this.connection.unsubscribe();
       // formUserModel with default null values
       return new InvestorFormModel(null, null, null, null, null, null,
         null, null, null, null, null, null, null, null,
-        null);
+        null, null);
     } else {
       // if editing an exist  user,create new form
       // with the existing data
@@ -92,19 +93,21 @@ this.connection.unsubscribe();
         this.user.userName,
         this.user.firstName,
         this.user.lastName,
-        this.user.company,
         this.user.cellPhoneNumber,
         this.user.officePhoneNumber,
         this.user.address,
         this.user.city,
         this.user.email,
         this.datePipe.transform(this.user.birthDate, _shortDate),
+        this.user.company,
         this.user.role,
         this.datePipe.transform(this.user.joinDate, _shortDate),
         this.user.rank,
+        this.user.investorAssociatedProjects,
         this.user.commentsTest,
         this.user.recruiter
       );
+
     }
   }
 
@@ -120,16 +123,16 @@ this.connection.unsubscribe();
         Validators.minLength(this.us.lastNameMin),
         Validators.maxLength(this.us.userNameMax)
       ]],
-      address: [this.formUser.address, Validators.required],
-      city: [null, Validators.required],
-      birthDate: [this.formUser.birthDate, Validators.required],
-      comments: [this.formUser.commentsTest, Validators.required],
       cellPhoneNumber: [this.formUser.cellPhoneNumber, Validators.required],
-      email: [this.formUser.email, [Validators.required, Validators.pattern(EMAIL_REGEX)]],
-      rank: [this.formUser.rank],
-      role: [this.formUser.role],
       officePhoneNumber: [this.formUser.officePhoneNumber,
         Validators.required],
+      address: [this.formUser.address, Validators.required],
+      email: [this.formUser.email, [Validators.required, Validators.pattern(EMAIL_REGEX)]],
+      birthDate: [this.formUser.birthDate, Validators.required],
+      city: [this.formUser.city, Validators.required],
+      comments: [this.formUser.commentsTest, Validators.required],
+      rank: [this.formUser.rank],
+      role: [this.formUser.role],
       joinDate: [this.formUser.joinDate,
         [
           Validators.required,
@@ -141,7 +144,7 @@ this.connection.unsubscribe();
         Validators.required],
       postalCode: [null],
       country: [null],
-      userName: [null],
+      userName: [this.formUser.userName],
     });
     this.SubmitButtonDisabled = !this.userForm.valid;
     this.formChangeSubscription = this.userForm
@@ -178,29 +181,26 @@ this.connection.unsubscribe();
 
 
   private _getSubmittedObject() {
+    console.log(this.userForm);
     return new InvestorModel(
+      this.userForm.get('userName').value,
       this.userForm.get('firstName').value,
       this.userForm.get('lastName').value,
       this.userForm.get('cellPhoneNumber').value,
       this.userForm.get('officePhoneNumber').value,
       this.userForm.get('address').value,
-      this.userForm.get('email').value,
       this.userForm.get('city').value,
-     // this.datePipe.transform(this.user.birthDate, _shortDate),
+      this.userForm.get('email').value,
       this.userForm.get('birthDate').value,
-      null,
-      // this.userForm.get('picture').value,
       this.userForm.get('company').value,
       this.userForm.get('role').value,
-     // this.datePipe.transform(this.user.joinDate, _shortDate),
       this.userForm.get('joinDate').value,
       this.userForm.get('rank').value,
-      // this.userForm.get('investorAssociatedProjects').value,
       null,
-       // this.userForm.get('commentsTest').value,
       null,
       this.userForm.get('recruiter').value,
-
+      null,
+      null
     );
   }
   onSubmit() {
@@ -225,6 +225,7 @@ this.connection.unsubscribe();
         }
       );
     } else {
+
        this.submitUserSub = this.userService.addUser$(this.submitUserObj).subscribe(
          data => {
            this.notification.showNotification(NOTIF_ALIGNMENT.TOP,  NOTIF_ALIGNMENT.CENTER, NOTIF_TITLE.PROFILE_ADDED,

@@ -26,6 +26,7 @@ export class UserService {
     }
   }
   addUser$(userObject) {
+    console.log(userObject);
     try {
       return this.httpClient.post('http://localhost:8080/investor/addInvestor', userObject);
     } catch (e) {
