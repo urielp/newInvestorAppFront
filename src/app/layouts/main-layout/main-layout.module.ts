@@ -32,6 +32,7 @@ import {ProfileCreatorComponent} from '../../userprofile/profile-creator/profile
 import {UpdateProfileComponent} from '../../userprofile/update-profile/update-profile.component';
 import {ProfileFormComponent} from '../../userprofile/profile-form/profile-form.component';
 import {SocketIoService} from '../../core/socket.io.service';
+import {ListComponentComponent} from '../../shared/list-component/list-component.component';
 @NgModule({
   imports: [
     CommonModule,
@@ -57,6 +58,7 @@ import {SocketIoService} from '../../core/socket.io.service';
     ProfileCreatorComponent,
     UpdateProfileComponent,
     ProfileFormComponent,
+    ListComponentComponent
    // SigninComponent,
   ],
   providers: [ UserService, NotificationsService, AuthService, SocketIoService, AuthGuard, DatePipe ],

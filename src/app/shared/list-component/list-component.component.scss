@@ -1,0 +1,144 @@
+.localCard{
+  border-radius: 6px;
+  box-shadow: 0 2px 2px hsla(38,16%,76%,.5);
+  background-color: #fff;
+  color: #252422;
+  margin-bottom: 20px;
+  position: relative;
+  z-index: 1;
+}
+.localCard .header {
+  padding: 20px 20px 0;
+}
+
+.localCard .avatar {
+  width: 50px;
+  height: 50px;
+  overflow: hidden;
+  border-radius: 50%;
+  margin-right: 5px;
+}
+.localCard .title {
+  margin: 0;
+  color: #252422;
+  font-weight: 300;
+}
+
+.localCard .content {
+  padding: 15px 15px 10px 15px;
+}
+.list-unstyled {
+  //padding-left: 0;
+  list-style: none;
+  margin-right: -45px;
+}
+.ol, ul {
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+.localCard ul.team-members li:not(:last-child) {
+  border-bottom: 1px solid #f1eae0;
+}
+
+.localCard ul.team-members li {
+  padding: 10px 0;
+}
+.img-circle {
+  border-radius: 50%;
+}
+.img {
+  vertical-align: middle;
+}
+.img {
+  border: 0;
+}
+.avatar{
+  width: 50px;
+  height: 50px;
+  overflow: hidden;
+  border-radius: 50%;
+  margin-right: 5px;
+}
+.carousel-inner>.item>a>img, .carousel-inner>.item>img, .img-responsive, .thumbnail a>img, .thumbnail>img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+.text-muted {
+  color: #ddd;
+}
+.text-right {
+  text-align: right;
+}
+
+.small, small {
+  font-size: 85%;
+}
+.col-xs-3 {
+  float: left;
+  position: relative;
+  min-height: 1px;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+//.btn.btn-icon:not(.btn-footer) .fa, .btn.btn-icon:not(.btn-footer) .far, .btn.btn-icon:not(.btn-footer) .fas, .btn.btn-icon:not(.btn-footer) .nc-icon, .navbar .navbar-nav>a.btn.btn-icon:not(.btn-footer) .fa, .navbar .navbar-nav>a.btn.btn-icon:not(.btn-footer) .far, .navbar .navbar-nav>a.btn.btn-icon:not(.btn-footer) .fas, .navbar .navbar-nav>a.btn.btn-icon:not(.btn-footer) .nc-icon {
+//  position: absolute;
+//  //top: 50%;
+//  //left: 50%;
+//  transform: translate(-12px,-12px);
+//  line-height: 1.5626rem;
+//  width: 24px;
+//}
+.myButton{
+  margin-top: 0;
+  position: absolute;
+  width: 31px;
+  -webkit-transform: none;
+  transform: none;
+  left: 0;
+  top: -4px;
+  height: 100%;
+  line-height: 31px;
+  font-size: 20px;
+  bottom: 0px;
+  min-width: 31px;
+  padding: 0;
+  overflow: hidden;
+
+}
+.mat-button.btn.btn-fab, .mat-button.btn.btn-just-icon, .mat-raised-button.btn.btn-fab, .mat-raised-button.btn.btn-just-icon, .mat-raised-button.btn:not([class*=mat-elevation-z]).btn-fab, .mat-raised-button.btn:not([class*=mat-elevation-z]).btn-just-icon, .btn.btn-fab, .btn.btn-just-icon {
+  font-size: 14px;
+  min-width: 31px;
+  height: 31px;
+  width: 31px;
+  padding: 0;
+  overflow: hidden;
+  position: relative;
+  line-height: 41px;
+}
+.mat-button.btn.btn-fab .material-icons, .mat-button.btn.btn-fab .fa, .mat-button.btn.btn-just-icon .material-icons, .mat-button.btn.btn-just-icon .fa, .mat-raised-button.btn.btn-fab .material-icons, .mat-raised-button.btn.btn-fab .fa, .mat-raised-button.btn.btn-just-icon .material-icons, .mat-raised-button.btn.btn-just-icon .fa, .mat-raised-button.btn:not([class*=mat-elevation-z]).btn-fab .material-icons, .mat-raised-button.btn:not([class*=mat-elevation-z]).btn-fab .fa, .mat-raised-button.btn:not([class*=mat-elevation-z]).btn-just-icon .material-icons, .mat-raised-button.btn:not([class*=mat-elevation-z]).btn-just-icon .fa, .btn.btn-fab .material-icons, .btn.btn-fab .fa, .btn.btn-just-icon .material-icons, .btn.btn-just-icon .fa {
+  margin-top: 0;
+  position: absolute;
+  width: 100%;
+  -webkit-transform: none;
+  transform: none;
+  left: 0;
+  top: -5px;
+  height: 100%;
+  line-height: 41px;
+  font-size: 15px;
+}
+
+.fill-space {
+  // This fills the remaining space, by using flexbox.
+  // Every toolbar row uses a flexbox row layout.
+  flex: 1 1 auto;
+}
+.flex-container {
+  display: flex;
+  flex-direction: row;
+}
+.flex-container-center{
+  display: flex;
+  justify-content: center;
+}

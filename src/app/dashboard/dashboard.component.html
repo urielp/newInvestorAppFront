@@ -73,6 +73,9 @@
             <div class="col-lg-6 col-md-12 col-sm-12">
               <app-cardlist></app-cardlist>
             </div>
+            <div class="col-lg-6 col-md-12 col-sm-12" *ngIf="projectsItems">
+              <app-list-component [inputList]="projectsItems" ></app-list-component>
+            </div>
             <!--<div class="col-lg-6 col-md-12 col-sm-12">-->
               <!--<app-cardlist></app-cardlist>-->
             <!--</div>-->
