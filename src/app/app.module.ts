@@ -20,6 +20,8 @@ import {InvestorService} from './services/investors.service';
 
 
 
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,8 +29,7 @@ import {InvestorService} from './services/investors.service';
     // UserprofileComponent,
     // SignupComponent,
     SigninComponent,
-    MainLayoutComponent,
-
+    MainLayoutComponent
     ],
   imports: [
     HttpClientModule,
